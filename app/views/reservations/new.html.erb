@@ -1,7 +1,35 @@
 <div class="container container-home d-flex p-4">
   <div class="col-3"></div>
   <div class="col-6 m-3 text-center main-box">
-    <h1> Faça sua reserva aqui! <h1>
+    <div class="home-title">
+      <h1> Faça sua reserva aqui! <h1>
+    </div>
+    <div class="reserve-container">
+      <%= form_with model: @reservation, local: true do |f| %>
+      <div>
+        <%= f.label :reserve_name %>
+        <%= f.text_field :reserve_name %>
+      </div>
+
+        <div>
+          <%= f.label :date, "Data" %>
+          <%= f.date_field :date_only %>
+        </div>
+
+        <div>
+          <%= f.label :time, "Horário" %>
+          <%= f.time_field :time_only %>
+        </div>
+
+        <div>
+          <%= f.label :details %>
+          <%= f.text_area :details %>
+        </div>
+
+        <%= f.submit "Reservar" %>
+      <% end %>
+
+    </div>
   </div>
   <div class="col-3"></div>
 </div>

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "reservations#new"
+  resources :reservations, only: [:new, :create]
 end
