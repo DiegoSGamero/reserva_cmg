@@ -1,4 +1,4 @@
-<div class="container container-home d-flex p-4">
+<div class="container container-home d-flex p-4" data-controller="popup">
   <div class="col-3"></div>
   <div class="col-6 m-3 text-center main-box">
     <div class="home-title">
@@ -27,21 +27,19 @@
             <%= f.input :details, label: "Detalhes" %>
           </div>
 
-          <%= f.button :submit, "Reservar" %>
+          <%= f.button :submit, "Reservar", class: "btn", data-action: "click->popup#up" %>
         <% end %>
       </div>
     </div>
-    <!-- Verifica o parâmetro `success` para exibir o pop-up -->
-    <% if params[:success] == 'true' %>
-      <div class="confirmation-popup">
-        Reserva realizada com sucesso!
-        <button onclick="window.location='/'">OK</button>
-      </div>
-    <% elsif params[:success] == 'false' %>
-      <div class="error-popup">
-        Erro ao criar reserva. Tente novamente.
-      </div>
-    <% end %>
+    <!-- Pop-up de confirmação -->
+  <div data-popup-target="popupWindow" class="popup-create" style="display: none;">
+    <div class="popup-content">
+      <span data-confirmation-target="close" class="close-popup">&times;</span>
+      <h2>Reserva realizada com sucesso!</h2>
+      <p>Você deseja realizar outra reserva?</p>
+      <button data-confirmation-target="confirm" type="button">Sim</button>
+      <button data-confirmation-target="cancel" type="button">Não</button>
+    </div>
   </div>
   <div class="col-3"></div>
 </div>
