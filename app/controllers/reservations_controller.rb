@@ -5,23 +5,19 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
   end
 
-  def show
-  end
+  # def show
+  # end
 
-  def new
-    @reservation = Reservation.new
-  end
+  # def new
+  #   @reservation = Reservation.new
+  # end
 
   def create
-    date = Date.parse(reservation_params[:date_only])
-    time = Time.parse(reservation_params[:time_only])
-    datetime = DateTime.new(date.year, date.month, date.day, time.hour, time.min, time.sec)
-
-    @reservation = Reservation.new(reservation_params.except(:date_only, :time_only))
-    @reservation.date = datetime
+    @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      redirect_to @reservation, notice: "Reserva criada com sucesso!"
+      redirect_to root_path, notice: "Reserva atualizada com sucesso!
+      Se achar necessário tire um print ou foto e boa festa!"
     else
       render :new
     end
@@ -30,13 +26,7 @@ class ReservationsController < ApplicationController
   def edit
   end
 
-  def update
-    if @reservation.update(reservation_params)
-      redirect_to @reservation, notice: "Reserva atualizada com sucesso!"
-    else
-      render :edit
-    end
-  end
+  def update; end
 
   def destroy
     @reservation.destroy
@@ -50,6 +40,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:reserve_name, :date_only, :time_only, :details)
+    params.require(:reservation).permit(:reserve_name, :date_only, :time_only, :reservation_type, :details)
   end
 end

@@ -74,3 +74,5 @@ end
 gem 'bootstrap', '~> 5.3.3'
 gem "devise"
 gem "font-awesome-sass", "~> 6.1"
+gem 'simple_form'
+gem "cloudinary"

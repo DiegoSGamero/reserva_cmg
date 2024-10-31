@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "reservations#new"
+  root "pages#home"
   resources :reservations, only: [:new, :create]
 end

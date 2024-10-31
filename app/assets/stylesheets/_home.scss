@@ -1,0 +1,16 @@
+.confirmation-popup, .error-popup {
+  display: block;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.error-popup {
+  background-color: #f44336;
+}
