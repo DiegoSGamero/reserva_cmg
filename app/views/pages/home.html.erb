@@ -27,10 +27,13 @@
             <%= f.input :details, label: "Detalhes" %>
           </div>
 
-          <%= f.button :submit, "Reservar", class: "btn" %>
+          <%= f.button :submit, "Reservar", class: "btn-btn-primary" %>
         <% end %>
       </div>
     </div>
+    <% if flash[:notice] %>
+      <div class="alert notice"><%= flash[:notice] %></div>
+    <% end %>
     <!-- Pop-up de confirmação -->
   <%# <div data-popup-target="popupWindow" class="popup-create" style="display: none;">
     <%#div class="popup-content">
@@ -38,7 +41,7 @@
       <%# <h2>Reserva realizada com sucesso!</h2> %>
       <%# <p>Você deseja realizar outra reserva?</p>
       <%# <button data-confirmation-target="confirm" type="button">Sim</button> %>
-      <%# <button data-confirmation-target="cancel" type="button">Não</button> %> %>
+      <%# <button data-confirmation-target="cancel" type="button">Não</button> %>
     <%# </div> %>
   <%# </div> %>
   <div class="col-3"></div>

@@ -16,10 +16,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      redirect_to root_path, notice: "Reserva atualizada com sucesso!
+      redirect_to new_reservation_guest_path(@reservation), notice: "Reserva atualizada com sucesso!
       Se achar necessário tire um print ou foto e boa festa!"
     else
-      render :new
+      redirect_to root_path, notice: "Todos os campos precisam estar preenhidos"
     end
   end
 

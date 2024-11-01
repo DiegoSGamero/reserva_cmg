@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
   enum reservation_type: { comum: "comum", aniversario: "aniversario", camarote: "camarote" }
+  has_many :guests
 
   # Validações (opcional)
   validates :reserve_name, presence: true

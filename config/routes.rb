@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
-  resources :reservations, only: [:new, :create]
+  resources :reservations, only: [:new, :create] do
+    resources :guests, only: [:new, :create]
+  end
 end

@@ -1,0 +1,12 @@
+<div class="container guests-container">
+  <div class="form-list">
+    <%= simple_form_for :guest, url:  reservation_guests_path(@reservation) do |f| %>
+    <%= f.hidden_field :reservation_id, value: @reservation.id %>
+
+    <%= f.input :guests_names, label: "Nomes dos Convidados (separados por vírgula)",
+               input_html: { placeholder: "Ex: João, Maria, Pedro" } %>
+
+    <%= f.button :submit, "Adicionar Convidados" %>
+  <% end %>
+  </div>
+</div>
